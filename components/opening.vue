@@ -28,9 +28,6 @@
         Dev Hormiga
         <img src="~/assets/antmove.gif" class="absolute" alt="" />
       </h1>
-      <p class="p1">
-        PROBANDO
-      </p>
       <p
         v-anime="translate"
         class="
@@ -47,16 +44,12 @@
         proximamente...
       </p>
       <div class="social flex justify-center gap-4">
-        <a href="https://github.com/devhormiga" target="_blank"
-          ><i id="git" class="fab fa-github-alt"></i
-        ></a>
-        <a href="https://www.linkedin.com/in/diego-v-0070161a4/" target="_blank"
-          ><i id="ld" class="fab fa-linkedin"></i
-        ></a>
-          <!-- exammple -->
-      <button @click="animeEl" style="color:white; opacity:1">Click me</button>
-      <p class="p1" style="color:white; opacity:1">Nuxt Animejs Module</p>
-      <!-- exammple -->
+        <a @mouseover="animeEl('fa-github-alt')" href="https://github.com/devhormiga" target="_blank"
+          ><i id="git" class="fab fa-github-alt"></i>
+        </a>
+        <a @mouseover="animeEl('fa-github-alt')"href="https://www.linkedin.com/in/diego-v-0070161a4/" target="_blank">
+          <i id="ld" class="fab fa-linkedin"></i>
+        </a>
       </div>
     </div>
   </div>
@@ -86,17 +79,60 @@ export default {
       ],
     };
   },
-  methods: {
-    animeEl: function(){
-      this.$anime({
-          targets: '.p1',
-          translateX: 250,
-          rotate: '1turn',
-          backgroundColor: '#2A2A2A',
-          duration: 1500
-        })
-    }
+  mounted(){
+    this.aparecer();
+    this.rotate2();
+    this.des();
 
+  },
+  methods: {
+    animeEl: function(target){
+      target = '.'+target;
+      this.$anime({
+          target: target,
+          rotate: '1turn',
+          duration: 1500,
+          delay: 1000
+        })
+      // console.log(target)
+    },
+    aparecer: function(){
+      targets: '.fab'
+      opacity: {
+        value: [1,0]
+        duration: 600
+      }
+    },
+    rotate2: function(){
+      this.$anime({
+        targets: '.fa-linkedin',
+        translateX: {
+          value :'+=240px',
+          duration:500,
+          delay: 6500
+        },
+        borderRadius: ['0%', '50%'],
+        easing: 'easeInOutQuad',
+        duration: 500,
+        delay: 2000,
+        direction: 'alternate'
+      })
+    },
+    des: function(){
+      this.$anime({
+        targets: '.fa-github-alt',
+        translateX: {
+          value :'-=240px',
+          duration:500,
+          delay: 6500
+        },
+        borderRadius: ['0%', '50%'],
+        easing: 'easeInOutQuad',
+        duration: 500,
+        delay: 2000,
+        direction: 'alternate'
+      })
+    }
   },
 };
 </script>
