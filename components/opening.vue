@@ -1,7 +1,7 @@
 <template>
   <div
     class="
-      h-screen
+      open-content
       container-fluid
       bg-head-dark
       flex flex-row
@@ -10,39 +10,40 @@
     "
   >
     <div class="container mx-auto flex flex-col justify-center">
-      <h1
-        v-anime="desplazarx"
-        class="
-          title-dev
-          letter
-          staggering-grid-demo
-          text-4xl
-          flex flex-row
-          sm:text-8xl
-          font-black
-          head-title
-          my-10
-          mx-auto
-        "
-      >
-        Dev Hormiga
-        <img src="~/assets/antmove.gif" class="absolute" alt="" />
-      </h1>
-      <p
-        v-anime="translate"
-        class="
-          block
-          font-mono
-          w-3/3
-          py-5
-          text-2xl text-center
-          animate-pulse
-          duration-1000
-          justigy-center
-        "
-      >
-        proximamente...
-      </p>
+        <h1
+          v-anime="desplazarx"
+          class="
+            title-dev
+            letter
+            staggering-grid-demo
+            text-4xl
+            flex flex-row
+            sm:text-8xl
+            font-black
+            head-title
+            my-10
+            mx-auto
+            text-center
+          "
+        >
+          Dev Hormiga
+          <img src="~/assets/antmove.gif" class="absolute" alt="" />
+        </h1>
+        <p
+          v-anime="translate"
+          class="
+            block
+            font-mono
+            w-3/3
+            py-5
+            text-2xl text-center
+            animate-pulse
+            duration-1000
+            justigy-center
+          "
+        >
+          proximamente...
+        </p>
       <div class="social flex justify-center gap-4">
         <a @mouseover="animeEl('fa-github-alt')" href="https://github.com/devhormiga" target="_blank"
           ><i id="git" class="fab fa-github-alt"></i>
@@ -51,6 +52,7 @@
           <i id="ld" class="fab fa-linkedin"></i>
         </a>
       </div>
+      <!-- <a href="/site">CONTINUAR</a> -->
     </div>
   </div>
 </template>
@@ -137,7 +139,9 @@ export default {
 };
 </script>
 <style scoped>
-
+.open-content{
+  height: 780px;
+}
 .bg-ant {
   /* background: #fff url(/assets/antmove.gif) center center/cover repeat content-box fixed; */
   background-image: url("assets/antmove.gif");
